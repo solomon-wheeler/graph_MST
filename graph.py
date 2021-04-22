@@ -11,11 +11,11 @@ class graph:
         self.nodes_cords = []
         # [start node][end node]
 
-    # Below creates a random matrix The function will overwtie and edges already made, so the number of times is not
+    # Below creates a random matrix The function will overwrite and edges already made, so the number of times is not
     # always equal to the number of times it runs
     def create_random(self, number_of_edges):
         for x in range(0, number_of_edges):
-            first_node = randint(0, self.num_nodes - 1)  # -1 becuase num_nodes starts at 1 not 0
+            first_node = randint(0, self.num_nodes - 1)  # -1 because num_nodes starts at 1 not 0
             last_node = randint(0, self.num_nodes - 1)
             weight = float(randint(0, 10))
             self.matrix[first_node][last_node] = weight
@@ -51,7 +51,7 @@ class graph:
     # This creates the cordinates for where the nodes are, they are roughly placed in a circle, because this means no edges will go over nodes
     def create_node_coordinate(self, x, y):
         x = x - 20  # So the circle doen't touch the edges
-        radius = int((x / 2) * 0.95)  # so circle dosent touch the edge
+        radius = int((x / 2) * 0.95)  # so circle does not touch the edge
         amount_of_values = len(self.matrix)  # This is the number of nodes we have, we could alternatively use num nodes
         mid_x = int(x / 2)  # The midpoint of the screen in x axis
         mid_y = int(y / 2)  # ^^
@@ -68,7 +68,7 @@ class graph:
             y_cord = int(mid_y + y_value)  # this ius the positive y value
 
             self.nodes_cords.append(
-                [x_cord, y_cord, x])  # Adds the cordinates aswell as the x value, which is the number  of the node
+                [x_cord, y_cord, x])  # Adds the cordinates as well as the x value, which is the number  of the node
             self.nodes_cords.append([x_cord, y_alt_cord,
                                      amount_of_values - x])  # amount of values - x just means that since we only run the for loop n/2 times all nodes are labbeled
         if 0 == amount_of_values % 2:  # For odd number the math.ceil function will mean we make the correct ammount,
@@ -99,7 +99,6 @@ class graph:
 
     def draw_edges(self, node1, node2, type, weight):
         found = 0  # set to zero, we add one each time and then when it reachers to we know we have found both
-        # todo test to check the same node is never being found twice
         for this_node in self.nodes_cords:
             if node1 == this_node[2]:
                 cordinate_1 = [this_node[0], this_node[1]]
