@@ -3,7 +3,7 @@ This is a program that visualises a graph, and allows the user to either add nod
 THe program will then use Primm's Algorithm to find the minium spanning tree for this graph, or the way of visting all nodes from a starting node with the lowest total weight.
 #
 
-#Dependencies 
+# Dependencies 
 This uses the following python libaries
 
 1. Pygame
